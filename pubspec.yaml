@@ -1,0 +1,48 @@
+name: tiktok_downloader
+description: Tiktok Downloader app with flutter
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.6 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.5
+  flutter_lints: ^2.0.1
+  flutter_bloc: ^8.1.1
+  fluttertoast: ^8.0.9
+  internet_connection_checker: ^0.0.1+4
+  dio: ^4.0.6
+  get_it: ^7.2.0
+  equatable: ^2.0.5
+  dartz: ^0.10.1
+  flutter_downloader: ^1.8.4
+  permission_handler: ^10.0.0
+  path_provider: ^2.0.11
+  open_file: ^3.2.1
+  gallery_saver: ^2.3.2
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/tiktok_logo.png
+    - assets/images/downloads_icon.png
+    - assets/images/no_data.png
+
+#  fonts:
+#    - family: Roboto
+#      fonts:
+#        - asset: assets/fonts/Roboto-Black.ttf
+#          weight: 900
