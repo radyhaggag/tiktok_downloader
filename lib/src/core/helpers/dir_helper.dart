@@ -1,22 +1,29 @@
 import 'dart:io';
 
+import 'package:gallery_saver/gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
 
 class DirHelper {
   static Future<String> getAppPath() async {
     String mainPath = await _getMainPath();
-    String appPath = "$mainPath/TtkFiles";
+    String appPath = "$mainPath/TiktokVideos";
     _createPathIfNotExist(appPath);
+    print(appPath);
     return appPath;
   }
 
   static Future<String> _getMainPath() async {
     String appDownloadsPath = "";
-    final dir = await getExternalStorageDirectory();
-    List<String> pathDirs = dir?.path.split('/') ?? [];
-    for (int i = 1; i < pathDirs.length; i++) {
-      if (pathDirs[i] == "Android") break;
-      appDownloadsPath = '$appDownloadsPath/${pathDirs[i]}';
+    if (Platform.isAndroid) {
+      final dir = await getExternalStorageDirectory();
+      List<String> paths = dir!.path.split('/');
+      for (var i in paths) {
+        if (i == "Android") break;
+        appDownloadsPath += "$i/";
+      }
+    } else {
+      final dir = await getApplicationDocumentsDirectory();
+      appDownloadsPath = dir.path;
     }
     return appDownloadsPath;
   }
@@ -25,5 +32,9 @@ class DirHelper {
     if (!await Directory(path).exists()) {
       await Directory(path).create(recursive: true);
     }
+  }
+
+  static Future saveVideoToGallery(videoPath) async {
+    return await GallerySaver.saveVideo(videoPath);
   }
 }

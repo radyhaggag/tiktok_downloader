@@ -16,13 +16,12 @@ dependencies:
   flutter_lints: ^2.0.1
   flutter_bloc: ^8.1.1
   fluttertoast: ^8.0.9
-  internet_connection_checker: ^0.0.1+4
+  internet_connection_checker: ^1.0.0+1
   dio: ^4.0.6
   get_it: ^7.2.0
   equatable: ^2.0.5
   dartz: ^0.10.1
-  flutter_downloader: ^1.8.4
-  permission_handler: ^10.0.0
+  permission_handler: ^10.0.1
   path_provider: ^2.0.11
   open_file: ^3.2.1
   gallery_saver: ^2.3.2

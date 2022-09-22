@@ -2,6 +2,7 @@ import '../../../../config/routes_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/widgets/center_indicator.dart';
 import '../controller/listeners/downloader_listener.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/widgets/custom_elevated_btn.dart';
@@ -40,7 +41,7 @@ class _DownloaderScreenState extends State<DownloaderScreen> {
       builder: (context, state) {
         return Scaffold(
           appBar: _buildAppBar(context),
-          body: _buildScreenBody(context),
+          body: _buildScreenBody(context, state),
         );
       },
     );
@@ -85,7 +86,8 @@ class _DownloaderScreenState extends State<DownloaderScreen> {
     );
   }
 
-  Widget _buildScreenBody(BuildContext context) => Container(
+  Widget _buildScreenBody(BuildContext context, DownloaderState state) =>
+      Container(
         padding: const EdgeInsets.all(AppSize.s20),
         alignment: AlignmentDirectional.center,
         child: SingleChildScrollView(
@@ -96,7 +98,9 @@ class _DownloaderScreenState extends State<DownloaderScreen> {
               const SizedBox(height: AppSize.s40),
               _buildBodyInputField(),
               const SizedBox(height: AppSize.s20),
-              _buildBodyDownloadBtn(context),
+              if (state is! DownloaderGetVideoLoading)
+                _buildBodyDownloadBtn(context),
+              if (state is DownloaderGetVideoLoading) CenterProgressIndicator(),
             ],
           ),
         ),
@@ -119,11 +123,12 @@ class _DownloaderScreenState extends State<DownloaderScreen> {
       key: _formKey,
       child: TextFormField(
         controller: _videoLinkController,
+        keyboardType: TextInputType.url,
         validator: (String? value) {
           if (value!.isEmpty) return AppStrings.videoLinkRequired;
           return null;
         },
-        decoration: const InputDecoration(
+        decoration: InputDecoration(
           hintText: AppStrings.inputLinkFieldText,
         ),
       ),

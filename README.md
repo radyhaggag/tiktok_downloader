@@ -1,16 +1,32 @@
 # tiktok_downloader
 
-Tiktok downloader application with RESTFUL API
+Tiktok downloader application with RESTFUL API designed by flutter
 
-## Getting Started
+## Tiktok downloader mockup
+- Downloader screen
+  ![downloader_screen](https://user-images.githubusercontent.com/74488175/191583338-89ed43e5-2268-4b64-9b19-4a87eedd5e14.png)
 
-This project is a starting point for a Flutter application.
+- Downloads Screen
+  ![downloads_screen](https://user-images.githubusercontent.com/74488175/191582439-2a932656-6626-4f81-9061-299730fae152.png)
 
-A few resources to get you started if this is your first Flutter project:
+## TikTok downloader app with:
+- Bloc state-management
+- Clean architecture & clean code
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Features:
+- Download TikTok videos by link
+- Open video if download success
+- Retry download if failed
+- Create specific folder for downloaded videos
+- Save video in gallery
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Packages used:
+- [Dependency injection by get_it](https://pub.dev/packages/get_it)
+- [internet connection checker](https://pub.dev/packages/internet_connection_checker)
+- [dartz](https://pub.dev/packages/dartz)
+- [equitable](https://pub.dev/packages/equatable)
+- [Dio for requests and download videos](https://pub.dev/packages/dio)
+- [permission_handler](https://pub.dev/packages/permission_handler)
+- [play video by open_file](https://pub.dev/packages/open_file)
+- [get app path by path_provider](https://pub.dev/packages/path_provider)
+- [gallery_saver for save videos in gallery](https://pub.dev/packages/gallery_saver)

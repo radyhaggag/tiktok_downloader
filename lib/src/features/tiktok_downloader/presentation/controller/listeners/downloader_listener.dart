@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gallery_saver/gallery_saver.dart';
-
+import '../../../../../core/helpers/dir_helper.dart';
 import '../../../../../core/utils/app_enums.dart';
 import '../../../../../core/widgets/build_toast.dart';
 import '../../widgets/download_bottom_sheet.dart';
@@ -19,7 +18,7 @@ void downloaderListener(BuildContext context, DownloaderState state) {
     buildDownloadBottomSheet(context, state.tikTokVideo);
   }
   if (state is DownloaderSaveVideoSuccess) {
-    GallerySaver.saveVideo(state.path);
+    DirHelper.saveVideoToGallery(state.path);
     buildToast(msg: state.message, type: ToastType.success);
   }
   if (state is DownloaderSaveVideoFailure) {

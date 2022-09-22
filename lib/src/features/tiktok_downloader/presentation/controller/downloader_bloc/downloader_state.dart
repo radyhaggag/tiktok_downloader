@@ -9,8 +9,8 @@ class DownloaderInitial extends DownloaderState {
   List<Object> get props => [];
 }
 
-class DownloaderVideoLoading extends DownloaderState {
-  const DownloaderVideoLoading();
+class DownloaderGetVideoLoading extends DownloaderState {
+  const DownloaderGetVideoLoading();
 
   @override
   List<Object?> get props => [];
@@ -45,10 +45,10 @@ class DownloaderSaveVideoSuccess extends DownloaderState {
   final String message;
   final String path;
 
-  const DownloaderSaveVideoSuccess({required this.message,required this.path});
+  const DownloaderSaveVideoSuccess({required this.message, required this.path});
 
   @override
-  List<Object?> get props => [message];
+  List<Object?> get props => [message, path];
 }
 
 class DownloaderSaveVideoFailure extends DownloaderState {

@@ -37,7 +37,7 @@ class DownloaderBloc extends Bloc<DownloaderEvent, DownloaderState> {
     DownloaderGetVideo event,
     Emitter<DownloaderState> emit,
   ) async {
-    emit(const DownloaderVideoLoading());
+    emit(const DownloaderGetVideoLoading());
     final result = await getVideoUseCase(event.videoLink);
     result.fold(
       (left) => emit(DownloaderGetVideoFailure(left.message)),

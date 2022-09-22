@@ -5,7 +5,8 @@ import 'bloc_observer.dart';
 import 'src/container_injector.dart';
 import 'src/my_app.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   initApp();
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());

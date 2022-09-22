@@ -35,6 +35,8 @@ Failure _handleResponseError(Response? response) {
   switch (response?.statusCode) {
     case 400:
       return const BadRequestFailure();
+    case 403:
+      return NotSubscribedFailure(message: response?.data['message']);
     case 429:
       return TooManyRequestsFailure(message: response?.data['message']);
     case 404:

@@ -6,7 +6,8 @@ import '../api/interceptors.dart';
 const String _CONTENT_TYPE = "Content-Type";
 const String _APPLICATION_JSON = "application/json";
 const int TIMEOUT = 20000;
-const String API_KEY = "Add your api key here for test";
+// const String API_KEY = "Add your api key here for test";
+const String API_KEY = "1e2d328129msha49fca00df6f881p147af8jsne121c53deae6";
 const String API_HOST = "tiktok-download-without-watermark.p.rapidapi.com";
 
 class DioHelper {

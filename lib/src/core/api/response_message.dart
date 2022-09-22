@@ -17,6 +17,8 @@ class ResponseMessage {
       "Please check your internet connection, and try again";
   static const String UNEXPECTED = "Some thing went wrong, Try again later";
 
-  static const String TOOMANYREQUESTS =
+  static const String TOO_MANY_REQUESTS =
       "Too many requests today, Try again later";
+  static const String NOT_SUBSCRIBED =
+      "You are not subscribed, Subscribe now to download more videos.";
 }

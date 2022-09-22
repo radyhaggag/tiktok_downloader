@@ -3,6 +3,7 @@ class Assets {
   Assets._();
 
   static const String imagesDownloadsIcon = 'assets/images/downloads_icon.png';
+  static const String imagesNoData = 'assets/images/no_data.png';
   static const String imagesTiktokLogo = 'assets/images/tiktok_logo.png';
 
 }
