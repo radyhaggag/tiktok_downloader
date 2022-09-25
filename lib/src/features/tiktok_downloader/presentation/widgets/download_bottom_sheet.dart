@@ -6,7 +6,7 @@ import '../../../../core/utils/app_strings.dart';
 import '../../../../core/widgets/custom_elevated_btn.dart';
 import '../../domain/entities/tiktok_video.dart';
 import '../../domain/entities/video_data.dart';
-import '../controller/downloader_bloc/downloader_bloc.dart';
+import '../bloc/downloader_bloc/downloader_bloc.dart';
 import 'bottom_sheet_header.dart';
 import 'count_view.dart';
 

@@ -1,11 +1,13 @@
 import 'dart:async';
+
+import 'package:flutter/material.dart';
+
 import '../../../../config/routes_manager.dart';
-import '../../../../core/utils/app_size.dart';
 import '../../../../core/media_query.dart';
 import '../../../../core/utils/app_assets.dart';
-import 'package:flutter/material.dart';
 import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/values_manager.dart';
+import '../../../../core/utils/app_constants.dart';
+import '../../../../core/utils/app_size.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -24,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
     _animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: AppValues.animationTime),
+      duration: const Duration(milliseconds: AppConstants.animationTime),
     );
     _animation = Tween(
       begin: 0.0,
@@ -34,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen>
     _animationController.forward();
 
     Timer.periodic(
-      const Duration(milliseconds: AppValues.navigateTime),
+      const Duration(milliseconds: AppConstants.navigateTime),
       (timer) => navigateToNextScreen(),
     );
   }

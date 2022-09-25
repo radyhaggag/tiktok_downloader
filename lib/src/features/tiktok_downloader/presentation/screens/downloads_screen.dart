@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/utils/app_assets.dart';
+import '../../../../core/utils/app_size.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../../domain/entities/download_item.dart';
-import '../controller/downloader_bloc/downloader_bloc.dart';
-import '../../../../core/utils/app_size.dart';
+import '../bloc/downloader_bloc/downloader_bloc.dart';
 import '../widgets/download_item_status.dart';
 
 class DownloadsScreen extends StatelessWidget {

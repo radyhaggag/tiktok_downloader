@@ -1,15 +1,18 @@
-import '../../../../config/routes_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/widgets/center_indicator.dart';
-import '../controller/listeners/downloader_listener.dart';
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/widgets/custom_elevated_btn.dart';
-import '../../../../core/utils/app_size.dart';
+import '../../../../config/routes_manager.dart';
+import '../../../../core/helpers/dir_helper.dart';
 import '../../../../core/utils/app_assets.dart';
+import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_enums.dart';
+import '../../../../core/utils/app_size.dart';
 import '../../../../core/utils/app_strings.dart';
-import '../controller/downloader_bloc/downloader_bloc.dart';
+import '../../../../core/widgets/build_toast.dart';
+import '../../../../core/widgets/center_indicator.dart';
+import '../../../../core/widgets/custom_elevated_btn.dart';
+import '../bloc/downloader_bloc/downloader_bloc.dart';
+import '../widgets/download_bottom_sheet.dart';
 
 class DownloaderScreen extends StatefulWidget {
   const DownloaderScreen({Key? key}) : super(key: key);
@@ -37,7 +40,26 @@ class _DownloaderScreenState extends State<DownloaderScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<DownloaderBloc, DownloaderState>(
-      listener: downloaderListener,
+      listener: (context, state) {
+        if (state is DownloaderGetVideoFailure) {
+          buildToast(msg: state.message, type: ToastType.error);
+        }
+        if (state is DownloaderGetVideoSuccess &&
+            state.tikTokVideo.videoData == null) {
+          buildToast(msg: state.tikTokVideo.msg, type: ToastType.error);
+        }
+        if (state is DownloaderGetVideoSuccess &&
+            state.tikTokVideo.videoData != null) {
+          buildDownloadBottomSheet(context, state.tikTokVideo);
+        }
+        if (state is DownloaderSaveVideoSuccess) {
+          DirHelper.saveVideoToGallery(state.path);
+          buildToast(msg: state.message, type: ToastType.success);
+        }
+        if (state is DownloaderSaveVideoFailure) {
+          buildToast(msg: state.message, type: ToastType.error);
+        }
+      },
       builder: (context, state) {
         return Scaffold(
           appBar: _buildAppBar(context),
@@ -128,7 +150,7 @@ class _DownloaderScreenState extends State<DownloaderScreen> {
           if (value!.isEmpty) return AppStrings.videoLinkRequired;
           return null;
         },
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           hintText: AppStrings.inputLinkFieldText,
         ),
       ),
