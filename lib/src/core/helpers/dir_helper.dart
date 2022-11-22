@@ -8,7 +8,6 @@ class DirHelper {
     String mainPath = await _getMainPath();
     String appPath = "$mainPath/TiktokVideos";
     _createPathIfNotExist(appPath);
-    print(appPath);
     return appPath;
   }
 
@@ -34,7 +33,7 @@ class DirHelper {
     }
   }
 
-  static Future saveVideoToGallery(videoPath) async {
-    return await GallerySaver.saveVideo(videoPath);
+  static Future<void> saveVideoToGallery(videoPath) async {
+    await GallerySaver.saveVideo(videoPath);
   }
 }

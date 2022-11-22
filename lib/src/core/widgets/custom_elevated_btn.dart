@@ -1,6 +1,6 @@
-import 'package:tiktok_downloader/src/core/media_query.dart';
 import 'package:flutter/material.dart';
 
+import '../media_query.dart';
 import '../utils/app_size.dart';
 
 class CustomElevatedBtn extends StatelessWidget {

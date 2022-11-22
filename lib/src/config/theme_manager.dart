@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../core/utils/font_manager.dart';
 import '../core/utils/app_colors.dart';
-import '../core/utils/styles_manager.dart';
 import '../core/utils/app_size.dart';
+import '../core/utils/font_manager.dart';
+import '../core/utils/styles_manager.dart';
 
 void setLightStatusBarIcons() {
   SystemChrome.setSystemUIOverlayStyle(

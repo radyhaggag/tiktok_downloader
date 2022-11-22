@@ -1,5 +1,6 @@
-import '../api/response_message.dart';
 import 'package:equatable/equatable.dart';
+
+import '../api/response_message.dart';
 
 abstract class Failure extends Equatable {
   final String message;
@@ -11,41 +12,40 @@ abstract class Failure extends Equatable {
 }
 
 class BadRequestFailure extends Failure {
-  const BadRequestFailure() : super(message: ResponseMessage.BAD_REQUEST);
+  const BadRequestFailure() : super(message: Authorized.badRequest);
 }
 
 class ServerFailure extends Failure {
-  const ServerFailure() : super(message: ResponseMessage.INTERNAL_SERVER_ERROR);
+  const ServerFailure() : super(message: Authorized.internalServerError);
 }
 
 class NotFoundFailure extends Failure {
-  const NotFoundFailure() : super(message: ResponseMessage.NOT_FOUND);
+  const NotFoundFailure() : super(message: Authorized.notFound);
 }
 
 class NoInternetConnectionFailure extends Failure {
   const NoInternetConnectionFailure()
-      : super(message: ResponseMessage.NO_INTERNET_CONNECTION);
+      : super(message: Authorized.noInternetConnection);
 }
 
 class UnexpectedFailure extends Failure {
-  const UnexpectedFailure() : super(message: ResponseMessage.UNEXPECTED);
+  const UnexpectedFailure() : super(message: Authorized.unexpected);
 }
 
 class ConnectTimeOutFailure extends Failure {
-  const ConnectTimeOutFailure()
-      : super(message: ResponseMessage.CONNECT_TIMEOUT);
+  const ConnectTimeOutFailure() : super(message: Authorized.connectTimeOut);
 }
 
 class CancelRequestFailure extends Failure {
-  const CancelRequestFailure() : super(message: ResponseMessage.CANCEL);
+  const CancelRequestFailure() : super(message: Authorized.cancel);
 }
 
 class TooManyRequestsFailure extends Failure {
   const TooManyRequestsFailure({required String? message})
-      : super(message: message ?? ResponseMessage.TOO_MANY_REQUESTS);
+      : super(message: message ?? Authorized.tooManyRequests);
 }
 
 class NotSubscribedFailure extends Failure {
   const NotSubscribedFailure({required String? message})
-      : super(message: message ?? ResponseMessage.NOT_SUBSCRIBED);
+      : super(message: message ?? Authorized.notSubscribed);
 }

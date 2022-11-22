@@ -1,29 +1,26 @@
 import 'package:dio/dio.dart';
-import '../../container_injector.dart';
-import '../utils/app_constants.dart';
-import '../api/interceptors.dart';
 
-const String _CONTENT_TYPE = "Content-Type";
-const String _APPLICATION_JSON = "application/json";
-const int TIMEOUT = 20000;
-// const String API_KEY = "Add your api key here for test";
-const String API_KEY = "1e2d328129msha49fca00df6f881p147af8jsne121c53deae6";
-const String API_HOST = "tiktok-download-without-watermark.p.rapidapi.com";
+import '../../container_injector.dart';
+import '../api/interceptors.dart';
+import '../utils/app_constants.dart';
+
+const String _contentType = "Content-Type";
+const String _applicationJson = "application/json";
+const String _apiKey = "1e2d328129msha49fca00df6f881p147af8jsne121c53deae6";
+const String _apiHost = "tiktok-download-without-watermark.p.rapidapi.com";
 
 class DioHelper {
   final Dio dio;
 
   DioHelper({required this.dio}) {
     Map<String, dynamic> headers = {
-      _CONTENT_TYPE: _APPLICATION_JSON,
-      "X-RapidAPI-Key": API_KEY,
-      "X-RapidAPI-Host": API_HOST,
+      _contentType: _applicationJson,
+      "X-RapidAPI-Key": _apiKey,
+      "X-RapidAPI-Host": _apiHost,
     };
     dio.options = BaseOptions(
       baseUrl: AppConstants.baseUrl,
       receiveDataWhenStatusError: true,
-      receiveTimeout: TIMEOUT,
-      connectTimeout: TIMEOUT,
       headers: headers,
     );
     dio.interceptors.add(sl<LogInterceptor>());

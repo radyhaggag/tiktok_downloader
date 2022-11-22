@@ -1,6 +1,6 @@
+import '../../domain/entities/tiktok_video.dart';
 import '../../domain/mappers.dart';
 import 'video_data_model.dart';
-import '../../domain/entities/tiktok_video.dart';
 
 class TiktokVideoModel extends TikTokVideo {
   const TiktokVideoModel({

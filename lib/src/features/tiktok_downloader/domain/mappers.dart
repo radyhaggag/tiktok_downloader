@@ -1,7 +1,7 @@
-import '../data/models/video_data_model.dart';
-import 'entities/video_data.dart';
 import '../data/models/tiktok_video_model.dart';
+import '../data/models/video_data_model.dart';
 import 'entities/tiktok_video.dart';
+import 'entities/video_data.dart';
 
 extension TiktokVideoExtension on TiktokVideoModel {
   TikTokVideo toDomain() => TikTokVideo(

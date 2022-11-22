@@ -122,7 +122,8 @@ class _DownloaderScreenState extends State<DownloaderScreen> {
               const SizedBox(height: AppSize.s20),
               if (state is! DownloaderGetVideoLoading)
                 _buildBodyDownloadBtn(context),
-              if (state is DownloaderGetVideoLoading) CenterProgressIndicator(),
+              if (state is DownloaderGetVideoLoading)
+                const CenterProgressIndicator(),
             ],
           ),
         ),

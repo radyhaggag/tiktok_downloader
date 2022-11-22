@@ -1,12 +1,13 @@
-import 'package:open_file/open_file.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../controller/downloader_bloc/downloader_bloc.dart';
+import 'package:open_file/open_file.dart';
+
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_enums.dart';
 import '../../../../core/utils/app_size.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../../domain/entities/download_item.dart';
+import '../bloc/downloader_bloc/downloader_bloc.dart';
 import 'text_btn_with_icon.dart';
 
 class DownloadItemStatus extends StatelessWidget {

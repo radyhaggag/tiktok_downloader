@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+
 import 'video_data.dart';
 
 class TikTokVideo extends Equatable {

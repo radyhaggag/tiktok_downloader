@@ -1,14 +1,14 @@
+import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-import '../../../../core/network/network_info.dart';
-import '../../domain/mappers.dart';
 import '../../../../core/error/error_handler.dart';
 import '../../../../core/error/failure.dart';
-import '../datasources/remote/tiktok_video_remote_data_source.dart';
+import '../../../../core/network/network_info.dart';
 import '../../domain/entities/tiktok_video.dart';
+import '../../domain/mappers.dart';
 import '../../domain/repositories/tiktok_video_base_repo.dart';
+import '../datasources/remote/tiktok_video_remote_data_source.dart';
 import '../models/tiktok_video_model.dart';
-import 'package:dartz/dartz.dart';
 
 class TiktokVideoRepo implements TiktokVideoBaseRepo {
   final TiktokVideoBaseRemoteDataSource remoteDataSource;

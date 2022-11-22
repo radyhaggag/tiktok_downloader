@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_downloader/src/core/media_query.dart';
+import '../../../../core/media_query.dart';
 
 import '../../../../core/utils/app_size.dart';
 
