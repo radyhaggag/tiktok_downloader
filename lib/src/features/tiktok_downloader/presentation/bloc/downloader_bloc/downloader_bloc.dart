@@ -65,6 +65,7 @@ class DownloaderBloc extends Bloc<DownloaderEvent, DownloaderState> {
     int index = _checkIfItemIsExistInDownloads(item);
     _addItem(index, item);
     emit(const DownloaderSaveVideoLoading());
+
     final result = await saveVideoUseCase(params);
     result.fold(
       (failure) {

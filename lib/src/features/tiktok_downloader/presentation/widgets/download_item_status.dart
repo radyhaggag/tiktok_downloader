@@ -19,17 +19,17 @@ class DownloadItemStatus extends StatelessWidget {
   Widget build(BuildContext context) {
     switch (item.status) {
       case DownloadStatus.downloading:
-        return Column(
+        return const Column(
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
+              children: [
                 Text(AppStrings.downloading, textAlign: TextAlign.center),
                 Icon(Icons.cloud_download, color: AppColors.primaryColor),
               ],
             ),
-            const SizedBox(height: AppSize.s10),
-            const LinearProgressIndicator(),
+            SizedBox(height: AppSize.s10),
+            LinearProgressIndicator(),
           ],
         );
       case DownloadStatus.success:

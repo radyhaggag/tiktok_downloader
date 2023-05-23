@@ -11,7 +11,9 @@ import 'bottom_sheet_header.dart';
 import 'count_view.dart';
 
 Future<dynamic> buildDownloadBottomSheet(
-    BuildContext context, TikTokVideo tikTokVideo) {
+  BuildContext context,
+  TikTokVideo tikTokVideo,
+) {
   final VideoData videoData = tikTokVideo.videoData!;
   return showModalBottomSheet(
     context: context,

@@ -24,5 +24,6 @@ void initDownloader() {
   );
   // downloader bloc
   sl.registerFactory(
-      () => DownloaderBloc(getVideoUseCase: sl(), saveVideoUseCase: sl()));
+    () => DownloaderBloc(getVideoUseCase: sl(), saveVideoUseCase: sl()),
+  );
 }

@@ -6,7 +6,7 @@ class PermissionsHelper {
     if (!status.isGranted) {
       final storageStatus = await Permission.storage.request();
       final manageStatus = await Permission.manageExternalStorage.request();
-      if (storageStatus.isGranted && manageStatus.isGranted) return true;
+      if (storageStatus.isGranted || manageStatus.isGranted) return true;
       return false;
     } else {
       return true;

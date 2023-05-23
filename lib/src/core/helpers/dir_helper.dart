@@ -6,7 +6,7 @@ import 'package:path_provider/path_provider.dart';
 class DirHelper {
   static Future<String> getAppPath() async {
     String mainPath = await _getMainPath();
-    String appPath = "$mainPath/TiktokVideos";
+    String appPath = "$mainPath/TikTokVideos";
     _createPathIfNotExist(appPath);
     return appPath;
   }
@@ -34,6 +34,10 @@ class DirHelper {
   }
 
   static Future<void> saveVideoToGallery(videoPath) async {
-    await GallerySaver.saveVideo(videoPath);
+    await GallerySaver.saveVideo(videoPath, albumName: 'TikTok_downloads');
+  }
+
+  static Future<void> removeFileFromDownloadsDir(videoPath) async {
+    await File(videoPath).delete();
   }
 }

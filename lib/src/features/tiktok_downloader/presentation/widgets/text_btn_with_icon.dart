@@ -9,13 +9,13 @@ class TextBtnWithIcon extends StatelessWidget {
   final Color color;
   final void Function()? onPressed;
 
-  const TextBtnWithIcon(
-      {Key? key,
-      required this.icon,
-      required this.label,
-      this.onPressed,
-      required this.color})
-      : super(key: key);
+  const TextBtnWithIcon({
+    Key? key,
+    required this.icon,
+    required this.label,
+    this.onPressed,
+    required this.color,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +34,9 @@ class TextBtnWithIcon extends StatelessWidget {
           const SizedBox(width: AppSize.s10),
           Text(
             label,
-            style:
-                Theme.of(context).textTheme.titleMedium!.copyWith(color: color),
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  color: color,
+                ),
           ),
         ],
       ),
