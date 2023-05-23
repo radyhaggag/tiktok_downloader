@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tiktok_downloader/src/features/tiktok_downloader/presentation/widgets/downloader_screen/downloader_screen_app_bar.dart';
 
 import '../../../../config/routes_manager.dart';
-import '../../../../core/helpers/dir_helper.dart';
 import '../../../../core/utils/app_assets.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_enums.dart';
@@ -41,6 +41,9 @@ class _DownloaderScreenState extends State<DownloaderScreen> {
   Widget build(BuildContext context) {
     return BlocConsumer<DownloaderBloc, DownloaderState>(
       listener: (context, state) {
+        if (state is DownloaderSaveVideoLoading) {
+          Navigator.of(context).popAndPushNamed(Routes.downloads);
+        }
         if (state is DownloaderGetVideoFailure) {
           buildToast(msg: state.message, type: ToastType.error);
         }
@@ -53,7 +56,8 @@ class _DownloaderScreenState extends State<DownloaderScreen> {
           buildDownloadBottomSheet(context, state.tikTokVideo);
         }
         if (state is DownloaderSaveVideoSuccess) {
-          DirHelper.saveVideoToGallery(state.path);
+          // DirHelper.saveVideoToGallery(state.path);
+          // DirHelper.removeFileFromDownloadsDir(state.path);
           buildToast(msg: state.message, type: ToastType.success);
         }
         if (state is DownloaderSaveVideoFailure) {
@@ -62,49 +66,10 @@ class _DownloaderScreenState extends State<DownloaderScreen> {
       },
       builder: (context, state) {
         return Scaffold(
-          appBar: _buildAppBar(context),
+          appBar: const DownloaderScreenAppBar(),
           body: _buildScreenBody(context, state),
         );
       },
-    );
-  }
-
-  AppBar _buildAppBar(BuildContext context) {
-    final allDownloads = context.read<DownloaderBloc>().allDownloads;
-    return AppBar(
-      title: const Text(AppStrings.appName),
-      actions: [
-        ElevatedButton(
-          onPressed: () => Navigator.of(context).pushNamed(Routes.downloads),
-          child: allDownloads.isNotEmpty
-              ? Stack(
-                  alignment: Alignment.topLeft,
-                  children: [
-                    _buildDownloadsIcons(),
-                    CircleAvatar(
-                      backgroundColor: AppColors.primaryColor,
-                      radius: AppSize.s10,
-                      child: Text(
-                        allDownloads.length.toString(),
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium!
-                            .copyWith(color: AppColors.white),
-                      ),
-                    ),
-                  ],
-                )
-              : _buildDownloadsIcons(),
-        ),
-      ],
-    );
-  }
-
-  Image _buildDownloadsIcons() {
-    return const Image(
-      width: AppSize.s40,
-      height: AppSize.s40,
-      image: AssetImage(AppAssets.downloadsIcon),
     );
   }
 
