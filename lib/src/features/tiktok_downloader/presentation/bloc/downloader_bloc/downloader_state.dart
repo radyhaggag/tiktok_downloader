@@ -59,3 +59,28 @@ class DownloaderSaveVideoFailure extends DownloaderState {
   @override
   List<Object?> get props => [message];
 }
+
+class OldDownloadsLoading extends DownloaderState {
+  const OldDownloadsLoading();
+
+  @override
+  List<Object?> get props => [];
+}
+
+class OldDownloadsLoadingSuccess extends DownloaderState {
+  final List<VideoItem> downloads;
+
+  const OldDownloadsLoadingSuccess({required this.downloads});
+
+  @override
+  List<Object?> get props => [downloads];
+}
+
+class OldDownloadsLoadingFailure extends DownloaderState {
+  final String message;
+
+  const OldDownloadsLoadingFailure(this.message);
+
+  @override
+  List<Object?> get props => [message];
+}

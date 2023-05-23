@@ -21,3 +21,8 @@ class DownloaderSaveVideo extends DownloaderEvent {
   @override
   List<Object?> get props => [tikTokVideo];
 }
+
+class LoadOldDownloads extends DownloaderEvent {
+  @override
+  List<Object?> get props => [];
+}

@@ -18,7 +18,7 @@ class DownloaderScreenAppBar extends StatelessWidget
       actions: [
         BlocBuilder<DownloaderBloc, DownloaderState>(
           builder: (context, state) {
-            final allDownloads = context.read<DownloaderBloc>().allDownloads;
+            final allDownloads = context.read<DownloaderBloc>().newDownloads;
 
             return ElevatedButton(
               onPressed: () {

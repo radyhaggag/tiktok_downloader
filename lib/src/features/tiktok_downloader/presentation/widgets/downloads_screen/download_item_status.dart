@@ -9,6 +9,7 @@ import '../../../../../core/utils/app_strings.dart';
 import '../../../domain/entities/download_item.dart';
 import '../../bloc/downloader_bloc/downloader_bloc.dart';
 import 'text_btn_with_icon.dart';
+import 'video_status_widget.dart';
 
 class DownloadItemStatus extends StatelessWidget {
   final DownloadItem item;
@@ -35,7 +36,7 @@ class DownloadItemStatus extends StatelessWidget {
       case DownloadStatus.success:
         return Column(
           children: [
-            _buildStatusHead(
+            const VideoStatusWidget(
               label: AppStrings.downloadSuccess,
               icon: Icons.cloud_done,
               color: AppColors.primaryColor,
@@ -45,7 +46,6 @@ class DownloadItemStatus extends StatelessWidget {
               label: AppStrings.play,
               color: AppColors.primaryColor,
               onPressed: () {
-                // TODO : OPEN FILE IN THE APP
                 Navigator.of(context).pushNamed(
                   Routes.viewVideo,
                   arguments: item.path,
@@ -58,7 +58,7 @@ class DownloadItemStatus extends StatelessWidget {
       case DownloadStatus.error:
         return Column(
           children: [
-            _buildStatusHead(
+            const VideoStatusWidget(
               label: AppStrings.downloadFall,
               icon: Icons.cloud_off,
               color: AppColors.error,
@@ -77,17 +77,4 @@ class DownloadItemStatus extends StatelessWidget {
         );
     }
   }
-
-  _buildStatusHead({
-    required String label,
-    required IconData icon,
-    required Color color,
-  }) =>
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Text(label, textAlign: TextAlign.center),
-          Icon(icon, color: color),
-        ],
-      );
 }

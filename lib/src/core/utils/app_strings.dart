@@ -12,4 +12,5 @@ class AppStrings {
   static const String downloadFall = "Download failed";
   static const String permissionsRequired =
       "Permissions is required, Please accept permissions and try again";
+  static const String oldDownloads = "Old Downloads";
 }
