@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../media_query.dart';
-import '../utils/app_size.dart';
 
 class CustomElevatedBtn extends StatelessWidget {
   final void Function()? onPressed;
@@ -15,7 +14,7 @@ class CustomElevatedBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: AppSize.s50,
+      height: 50,
       width: width ?? context.width / 2,
       child: ElevatedButton(
         onPressed: onPressed,

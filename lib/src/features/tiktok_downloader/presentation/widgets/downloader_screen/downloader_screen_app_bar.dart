@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../config/routes_manager.dart';
 import '../../../../../core/utils/app_assets.dart';
 import '../../../../../core/utils/app_colors.dart';
-import '../../../../../core/utils/app_size.dart';
 import '../../../../../core/utils/app_strings.dart';
 import '../../bloc/downloader_bloc/downloader_bloc.dart';
 
@@ -32,7 +31,7 @@ class DownloaderScreenAppBar extends StatelessWidget
                         _buildDownloadsIcons(),
                         CircleAvatar(
                           backgroundColor: AppColors.primaryColor,
-                          radius: AppSize.s10,
+                          radius: 10,
                           child: Text(
                             allDownloads.length.toString(),
                             style: Theme.of(context)
@@ -51,14 +50,14 @@ class DownloaderScreenAppBar extends StatelessWidget
     );
   }
 
+  Image _buildDownloadsIcons() {
+    return const Image(
+      width: 40,
+      height: 40,
+      image: AssetImage(AppAssets.downloadsIcon),
+    );
+  }
+
   @override
   Size get preferredSize => const Size.fromHeight(60);
-}
-
-Image _buildDownloadsIcons() {
-  return const Image(
-    width: AppSize.s40,
-    height: AppSize.s40,
-    image: AssetImage(AppAssets.downloadsIcon),
-  );
 }

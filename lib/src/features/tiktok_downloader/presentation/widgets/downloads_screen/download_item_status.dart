@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:open_file/open_file.dart';
+import 'package:tiktok_downloader/src/config/routes_manager.dart';
 
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_enums.dart';
-import '../../../../core/utils/app_size.dart';
-import '../../../../core/utils/app_strings.dart';
-import '../../domain/entities/download_item.dart';
-import '../bloc/downloader_bloc/downloader_bloc.dart';
+import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/utils/app_enums.dart';
+import '../../../../../core/utils/app_strings.dart';
+import '../../../domain/entities/download_item.dart';
+import '../../bloc/downloader_bloc/downloader_bloc.dart';
 import 'text_btn_with_icon.dart';
 
 class DownloadItemStatus extends StatelessWidget {
@@ -28,7 +28,7 @@ class DownloadItemStatus extends StatelessWidget {
                 Icon(Icons.cloud_download, color: AppColors.primaryColor),
               ],
             ),
-            SizedBox(height: AppSize.s10),
+            SizedBox(height: 10),
             LinearProgressIndicator(),
           ],
         );
@@ -44,7 +44,14 @@ class DownloadItemStatus extends StatelessWidget {
               icon: Icons.play_circle,
               label: AppStrings.play,
               color: AppColors.primaryColor,
-              onPressed: () => OpenFile.open(item.path),
+              onPressed: () {
+                // TODO : OPEN FILE IN THE APP
+                Navigator.of(context).pushNamed(
+                  Routes.viewVideo,
+                  arguments: item.path,
+                );
+                OpenFile.open(item.path);
+              },
             ),
           ],
         );

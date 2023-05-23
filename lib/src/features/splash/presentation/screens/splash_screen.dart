@@ -7,7 +7,6 @@ import '../../../../core/media_query.dart';
 import '../../../../core/utils/app_assets.dart';
 import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_constants.dart';
-import '../../../../core/utils/app_size.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -63,15 +62,15 @@ class _SplashScreenState extends State<SplashScreen>
       body: Container(
         width: context.width,
         height: context.height,
-        padding: const EdgeInsets.all(AppSize.s20),
+        padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(gradient: AppColors.splashGradient),
         child: FadeTransition(
           opacity: _animation,
           child: const Image(
-            width: AppSize.s100,
-            height: AppSize.s100,
+            width: 100,
+            height: 100,
             fit: BoxFit.scaleDown,
-            image: AssetImage(AppAssets.tiktokLogo),
+            image: AssetImage(AppAssets.tikTokLogo),
           ),
         ),
       ),

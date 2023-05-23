@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../core/media_query.dart';
-
-import '../../../../core/utils/app_size.dart';
+import '../../../../../core/media_query.dart';
 
 class TextBtnWithIcon extends StatelessWidget {
   final IconData icon;
@@ -31,7 +29,7 @@ class TextBtnWithIcon extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(icon, color: color),
-          const SizedBox(width: AppSize.s10),
+          const SizedBox(width: 10),
           Text(
             label,
             style: Theme.of(context).textTheme.titleMedium!.copyWith(

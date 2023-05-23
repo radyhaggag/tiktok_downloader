@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_assets.dart';
-import '../../../../core/utils/app_size.dart';
 import '../../domain/entities/video_data.dart';
 
 class BottomSheetHeader extends StatelessWidget {
@@ -15,16 +14,16 @@ class BottomSheetHeader extends StatelessWidget {
     return Row(
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(AppSize.s10),
+          borderRadius: BorderRadius.circular(10),
           child: FadeInImage(
-            width: AppSize.s150,
-            height: AppSize.s150,
+            width: 150,
+            height: 150,
             fit: BoxFit.cover,
             image: NetworkImage(videoData.originCover),
             placeholder: const AssetImage(AppAssets.noInternetImage),
           ),
         ),
-        const SizedBox(width: AppSize.s10),
+        const SizedBox(width: 10),
         Expanded(
           child: Text(
             videoData.title,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../core/utils/app_colors.dart';
-import '../core/utils/app_size.dart';
 import '../core/utils/font_manager.dart';
 import '../core/utils/styles_manager.dart';
 
@@ -58,7 +57,7 @@ ThemeData getAppTheme() {
         textStyle: getRegularStyle(color: AppColors.white),
         backgroundColor: AppColors.primaryColor,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppSize.s5),
+          borderRadius: BorderRadius.circular(5),
         ),
         elevation: 0.0,
       ),
@@ -70,13 +69,13 @@ ThemeData getAppTheme() {
       fillColor: AppColors.light,
       filled: true,
       errorBorder: const OutlineInputBorder(
-        borderSide: BorderSide(color: AppColors.error, width: AppSize.s1_5),
+        borderSide: BorderSide(color: AppColors.error, width: 1.5),
       ),
       focusedBorder: const OutlineInputBorder(
-        borderSide: BorderSide(color: AppColors.black, width: AppSize.s1_5),
+        borderSide: BorderSide(color: AppColors.black, width: 1.5),
       ),
       focusedErrorBorder: const OutlineInputBorder(
-        borderSide: BorderSide(color: AppColors.error, width: AppSize.s1_5),
+        borderSide: BorderSide(color: AppColors.error, width: 1.5),
       ),
       enabledBorder: InputBorder.none,
     ),

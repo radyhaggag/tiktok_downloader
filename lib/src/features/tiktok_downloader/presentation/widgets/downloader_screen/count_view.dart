@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/app_colors.dart';
-import '../../../../core/utils/app_size.dart';
-import '../../domain/entities/video_data.dart';
+import '../../../../../core/utils/app_colors.dart';
+import '../../../domain/entities/video_data.dart';
 
 class CountView extends StatelessWidget {
   final int count;
@@ -17,13 +16,13 @@ class CountView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(AppSize.s5),
+      padding: const EdgeInsets.all(5),
       decoration: const BoxDecoration(color: AppColors.grey),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(icon),
-          const SizedBox(width: AppSize.s10),
+          const SizedBox(width: 10),
           Text(count.toString()),
         ],
       ),
@@ -47,14 +46,14 @@ class BottomSheetCountItems extends StatelessWidget {
             icon: Icons.remove_red_eye,
           ),
         ),
-        const SizedBox(width: AppSize.s5),
+        const SizedBox(width: 5),
         Expanded(
           child: CountView(
             count: videoData.downloadCount,
             icon: Icons.download,
           ),
         ),
-        const SizedBox(width: AppSize.s5),
+        const SizedBox(width: 5),
         Expanded(
           child: CountView(
             count: videoData.duration,
