@@ -119,29 +119,32 @@ class DownloaderBloc extends Bloc<DownloaderEvent, DownloaderState> {
     return index;
   }
 
+  List<VideoItem> oldDownloads = [];
+
   Future<void> _loadOldDownloads(
     LoadOldDownloads event,
     Emitter<DownloaderState> emit,
   ) async {
     emit(const OldDownloadsLoading());
-    List<VideoItem> videos = [];
+    oldDownloads.clear();
     final path = await DirHelper.getAppPath();
     final directory = Directory(path);
     final files = await directory.list().toList();
-    final newDownloadedVideosPathes = newDownloads.map((e) => e.path);
+    final newDownloadedVideosPaths = newDownloads.map((e) => e.path);
     for (final file in files) {
       if (file is File && file.path.endsWith('.mp4')) {
         final videoPath = file.path;
-        if (newDownloadedVideosPathes.contains(videoPath)) continue;
+        if (newDownloadedVideosPaths.contains(videoPath)) continue;
         final thumbnailPath = await VideoThumbnail.thumbnailFile(
           video: videoPath,
           thumbnailPath: (await getTemporaryDirectory()).path,
           imageFormat: ImageFormat.PNG,
           quality: 30,
         );
-        videos.add(VideoItem(path: videoPath)..thumbnailPath = thumbnailPath);
+        oldDownloads
+            .add(VideoItem(path: videoPath)..thumbnailPath = thumbnailPath);
       }
     }
-    emit(OldDownloadsLoadingSuccess(downloads: videos));
+    emit(OldDownloadsLoadingSuccess(downloads: oldDownloads));
   }
 }

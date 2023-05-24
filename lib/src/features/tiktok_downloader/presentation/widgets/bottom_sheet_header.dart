@@ -28,6 +28,7 @@ class BottomSheetHeader extends StatelessWidget {
           child: Text(
             videoData.title,
             style: Theme.of(context).textTheme.titleMedium,
+            maxLines: 5,
           ),
         ),
       ],

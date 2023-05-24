@@ -6,8 +6,8 @@ import '../utils/app_constants.dart';
 
 const String _contentType = "Content-Type";
 const String _applicationJson = "application/json";
-// const String _apiKey = "1e2d328129msha49fca00df6f881p147af8jsne121c53deae6";
-const String _apiKey = "f21b4e327emsh7a30ad174abed5ep10e725jsn17d7586cf86b";
+const String _apiKey = "1e2d328129msha49fca00df6f881p147af8jsne121c53deae6";
+// const String _apiKey = "f21b4e327emsh7a30ad174abed5ep10e725jsn17d7586cf86b";
 const String _apiHost = "tiktok-download-without-watermark.p.rapidapi.com";
 
 class DioHelper {

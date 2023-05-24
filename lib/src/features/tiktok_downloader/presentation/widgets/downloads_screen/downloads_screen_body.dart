@@ -1,23 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tiktok_downloader/src/core/utils/app_colors.dart';
 
-import '../../bloc/downloader_bloc/downloader_bloc.dart';
 import 'new_downloads_section.dart';
 import 'old_downloads_section.dart';
 
-class DownloadsScreenBody extends StatefulWidget {
+class DownloadsScreenBody extends StatelessWidget {
   const DownloadsScreenBody({super.key});
-
-  @override
-  State<DownloadsScreenBody> createState() => _DownloadsScreenBodyState();
-}
-
-class _DownloadsScreenBodyState extends State<DownloadsScreenBody> {
-  @override
-  void initState() {
-    super.initState();
-    context.read<DownloaderBloc>().add(LoadOldDownloads());
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +13,7 @@ class _DownloadsScreenBodyState extends State<DownloadsScreenBody> {
       child: Column(
         children: [
           NewDownloadsSection(),
-          Divider(),
+          Divider(color: AppColors.black, thickness: .1, height: 10),
           OldDownloadsSection(),
         ],
       ),
