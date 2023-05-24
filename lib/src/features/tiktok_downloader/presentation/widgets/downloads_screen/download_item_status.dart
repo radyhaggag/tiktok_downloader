@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:open_file/open_file.dart';
 import 'package:tiktok_downloader/src/config/routes_manager.dart';
 
 import '../../../../../core/utils/app_colors.dart';
@@ -50,7 +49,6 @@ class DownloadItemStatus extends StatelessWidget {
                   Routes.viewVideo,
                   arguments: item.path,
                 );
-                OpenFile.open(item.path);
               },
             ),
           ],

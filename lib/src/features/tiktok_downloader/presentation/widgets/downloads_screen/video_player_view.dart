@@ -17,7 +17,7 @@ class VideoPlayerView extends StatefulWidget {
 class VideoPlayerViewState extends State<VideoPlayerView> {
   late VideoPlayerController _videoPlayerController;
   late ChewieController _chewieController;
-  bool _isFullScreen = false;
+  final bool _isFullScreen = false;
 
   @override
   void initState() {
@@ -36,30 +36,6 @@ class VideoPlayerViewState extends State<VideoPlayerView> {
     _videoPlayerController.dispose();
     _chewieController.dispose();
     super.dispose();
-  }
-
-  void togglePlayPause() {
-    _chewieController.videoPlayerController.value.isPlaying
-        ? _chewieController.pause()
-        : _chewieController.play();
-  }
-
-  void toggleRotation() {
-    setState(() {
-      _isFullScreen = !_isFullScreen;
-    });
-  }
-
-  void seekBackward() {
-    final Duration currentPosition = _videoPlayerController.value.position;
-    const Duration seekTime = Duration(seconds: 10);
-    _videoPlayerController.seekTo(currentPosition - seekTime);
-  }
-
-  void seekForward() {
-    final Duration currentPosition = _videoPlayerController.value.position;
-    const Duration seekTime = Duration(seconds: 10);
-    _videoPlayerController.seekTo(currentPosition + seekTime);
   }
 
   @override

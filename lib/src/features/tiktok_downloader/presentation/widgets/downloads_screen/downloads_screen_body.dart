@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tiktok_downloader/src/core/utils/app_strings.dart';
-import 'package:tiktok_downloader/src/features/tiktok_downloader/presentation/widgets/downloads_screen/new_downloads_section.dart';
 
 import '../../bloc/downloader_bloc/downloader_bloc.dart';
+import 'new_downloads_section.dart';
 import 'old_downloads_section.dart';
 
 class DownloadsScreenBody extends StatefulWidget {
@@ -24,12 +23,9 @@ class _DownloadsScreenBodyState extends State<DownloadsScreenBody> {
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           NewDownloadsSection(),
-          SizedBox(height: 10),
-          Text(AppStrings.oldDownloads),
-          SizedBox(height: 10),
+          Divider(),
           OldDownloadsSection(),
         ],
       ),

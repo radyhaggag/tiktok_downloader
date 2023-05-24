@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:open_file/open_file.dart';
 
 import '../../../../../config/routes_manager.dart';
 import '../../../../../core/utils/app_colors.dart';
@@ -37,7 +36,6 @@ class OldDownloadItem extends StatelessWidget {
                 Routes.viewVideo,
                 arguments: videoItem.path,
               );
-              OpenFile.open(videoItem.path);
             },
           ),
         ),

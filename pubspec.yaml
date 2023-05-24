@@ -22,7 +22,6 @@ dependencies:
   gallery_saver: ^2.3.2
   get_it: ^7.2.0
   internet_connection_checker: ^1.0.0+1
-  open_file: ^3.2.1
   path_provider: ^2.0.11
   permission_handler: ^10.0.1
   video_player: ^2.6.1
